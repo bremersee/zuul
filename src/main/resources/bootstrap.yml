@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: ${APPLICATION_NAME:zuul}
+  profiles:
+    active: ${ACTIVE_PROFILES:default}
+  cloud:
+    config:
+      enabled: ${CONFIG_CLIENT_ENABLED:false}
+      uri: ${CONFIG_URI:https://configserver.example.org}
+      username: ${CONFIG_USER:user}
+      password: ${CONFIG_PASSWORD:changeit}

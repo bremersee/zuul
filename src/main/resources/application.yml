@@ -1,0 +1,26 @@
+server:
+  port: ${SERVER_PORT:8765}
+  use-forward-headers: ${USE_FORWARD_HEADERS:true}
+  tomcat:
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
+    port-header: x-forwarded-port
+
+logging:
+  level:
+    ROOT: ${LOG_LEVEL_ROOT:INFO}
+    org.springframework: ${LOG_LEVEL_SPRING:INFO}
+    org.bremersee: ${LOG_LEVEL_BREMERSEE:DEBUG}
+
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://user:password@localhost:8761/eureka/
+
+zuul:
+  sensitive-headers:
+  add-host-header: true
+  add-proxy-headers: true
+  strip-prefix: true
