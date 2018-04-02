@@ -1,3 +1,19 @@
+eureka:
+  client:
+    enabled: false
+    register-with-eureka: false
+
+logging:
+  level:
+    ROOT: ${LOG_LEVEL_ROOT:INFO}
+    org.springframework: ${LOG_LEVEL_SPRING:INFO}
+    org.bremersee: ${LOG_LEVEL_BREMERSEE:DEBUG}
+
+management:
+  server:
+    servlet:
+      context-path: /management
+
 server:
   port: ${SERVER_PORT:8765}
   use-forward-headers: ${USE_FORWARD_HEADERS:true}
@@ -6,18 +22,18 @@ server:
     protocol-header: x-forwarded-proto
     port-header: x-forwarded-port
 
-logging:
-  level:
-    ROOT: ${LOG_LEVEL_ROOT:INFO}
-    org.springframework: ${LOG_LEVEL_SPRING:INFO}
-    org.bremersee: ${LOG_LEVEL_BREMERSEE:DEBUG}
-
-eureka:
-  client:
-    enabled: true
-    register-with-eureka: false
-    serviceUrl:
-      defaultZone: http://user:password@localhost:8761/eureka/
+spring:
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+    default-property-inclusion: non_null
+    property-naming-strategy: LOWER_CAMEL_CASE
+    locale: de_DE
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    time-zone: Europe/Berlin
+  zipkin:
+    enabled: false
+    base-url: http://localhost:9411/
 
 zuul:
   sensitive-headers:
