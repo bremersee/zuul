@@ -1,3 +1,12 @@
+bremersee:
+  access:
+    ip-addresses:
+    - "127.0.0.1"
+    - "::1"
+    users:
+    - name: actuator
+      password: secret4ACTUATOR
+
 eureka:
   client:
     enabled: false
@@ -10,9 +19,10 @@ logging:
     org.bremersee: ${LOG_LEVEL_BREMERSEE:DEBUG}
 
 management:
-  server:
-    servlet:
-      context-path: /management
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 server:
   port: ${SERVER_PORT:8765}

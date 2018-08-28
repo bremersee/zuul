@@ -13,7 +13,7 @@
 
   <groupId>org.bremersee</groupId>
   <artifactId>zuul</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <packaging>jar</packaging>
 
   <name>zuul</name>
@@ -49,7 +49,7 @@
     <sonar.jacoco.reportMissing.force.zero>true</sonar.jacoco.reportMissing.force.zero>
     <dockerfile-maven-version>1.4.0</dockerfile-maven-version>
     <dockerfile.skip>true</dockerfile.skip>
-    <dockerfile.tag>1.0.0</dockerfile.tag>
+    <dockerfile.tag>1.1.0</dockerfile.tag>
   </properties>
 
   <scm>
@@ -187,6 +187,10 @@
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
     <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-registry-prometheus</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-aop</artifactId>
     </dependency>
@@ -195,11 +199,11 @@
       <artifactId>spring-retry</artifactId>
     </dependency>
 
-    <!--
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+    <!--
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-oauth2</artifactId>
